@@ -62,19 +62,17 @@ app.post("/api", (req, res) => {
 
   if (action === "Simpan") {
     sql = `INSERT INTO t_product (id,name,price,id_category,id_cashier)
-    VALUES (null,'${product}','${price}',null,null)`;
+    VALUES ('','${nm_prod}','${prod_price}','${nm_cat}','${nm_cas}`;
   } else {
     sql =
-      `UPDATE t_product SET cashier='` +
-      req.body.nm_cas +
+      `UPDATE cashier SET id='` +
+      null +
       `', 
 		        name='` +
-      req.body.nm_prod +
-      `', price='` +
-      req.body.prod_price +
+      test +
       `' 
 		        WHERE id='` +
-      req.body.id_prod +
+      id_prod +
       `';`;
   }
 
@@ -82,7 +80,7 @@ app.post("/api", (req, res) => {
   let query = conn.query(sql, data, (err, results) => {
     if (err) throw err;
     res.json(results);
-    console.log(results);
+    console.log(res.json(results));
   });
 });
 
